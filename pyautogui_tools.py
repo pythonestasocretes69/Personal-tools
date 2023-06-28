@@ -1,19 +1,21 @@
 import pyautogui as auto
 import time
 import subprocess
+auto.FAILSAFE = True
 
+#tracking the position of the cursor
 def track(gap = 5):
     failsafe = False
     path = []
-    while not failsafe:
+    while True:
         try:
             position = auto.position()
             time.sleep(gap)
-            snap.append(position)
+            path.append(position)
             print(position)
-        except pyautogui.FailSafeException:
-            failsafe = True
-        return(path)
+        except auto.FailSafeException:
+            break
+    return(path)
 def shutdown():
     file = 'D:\home\projects\Shut down shortcut.py'
     subprocess.run(["python", file])
