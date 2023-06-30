@@ -16,6 +16,13 @@ def track(gap = 5):
         except auto.FailSafeException:
             break
     return(path)
+
+#automated shutdown
 def shutdown():
     file = 'D:\home\projects\Shut down shortcut.py'
     subprocess.run(["python", file])
+    
+#delayed click
+def click(time=30):
+    time.sleep(time)
+    auto.click()
