@@ -12,6 +12,8 @@ for i in lines:
         web.open("https://bard.com")
     elif i.startswith("c"):
         web.open("https://chat.openai.com")
+    else:
+     continue
     time.sleep(10)
     auto.typewrite(i[1:])
     time.sleep(20)
